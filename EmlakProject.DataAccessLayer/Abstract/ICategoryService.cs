@@ -10,10 +10,11 @@ namespace EmlakProject.DataAccessLayer.Abstract
     public interface ICategoryService
     {
         List<Category> GetList();
+        Category GetById(string id);
+        Category Add(Category category);
 
-        Category GetByIdCategory(string categoryId);
-        Category AddCategory(Category category);
-        void UpdateCategory(string id, Category category);
         void Delete(string id);
+        void Update(string id, Category category);
+
     }
 }

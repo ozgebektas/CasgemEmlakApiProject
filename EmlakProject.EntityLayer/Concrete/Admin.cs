@@ -12,8 +12,15 @@ namespace EmlakProject.EntityLayer.Concrete
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string AdminID { get; set; }
+        public string AdminID { get; set; } = ObjectId.GenerateNewId().ToString();
+
+		[BsonElement("username")]
         public string Username { get; set; }
+        [BsonElement("password")]
         public string Password { get; set; }
+
+        [BsonElement("Email")]
+        public string Email { get; set; }
+        
     }
 }

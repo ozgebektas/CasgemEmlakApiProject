@@ -12,7 +12,10 @@ namespace EmlakProject.EntityLayer.Concrete
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string CustomerID { get; set; }
+        public string CustomerID { get; set; } = ObjectId.GenerateNewId().ToString();
+        [BsonElement("namesurname")]
         public string NameSurname { get; set; }
+        [BsonElement("description")]
+        public string Description { get; set; }
     }
 }

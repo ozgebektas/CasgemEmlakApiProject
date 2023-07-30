@@ -1,0 +1,126 @@
+﻿@model List<PropertyViewModel>
+@foreach(var item in Model)
+{
+<section class="w3l-blog post-content py-5">
+    <div class="container py-lg-4 py-md-3 py-2">
+        <div class="inner mb-4">
+            <ul class="blog-single-author-date align-items-center">
+                <li>
+                    <div class="listing-category"><span>Buy</span><span>Rent</span></div>
+                </li>
+                <li><span class="fa fa-clock-o"></span> 5 Ay Önce</li>
+                <li><span class="fa fa-eye"></span> 250 Görüntülenme</li>
+            </ul>
+        </div>
+        <div class="post-content">
+            <h2 class="title-single">@item.Title</h2>
+        </div>
+        <div class="blo-singl mb-4">
+            <ul class="blog-single-author-date align-items-center">
+                <li>
+                    <p>@item.Adress</p>
+                </li>
+                <li><span class="fa fa-bed"></span>@item.BedCount</li>
+                <li><span class="fa fa-bath"></span>@item.BathCount</li>
+                <li><span class="fa fa-share-square-o"></span> 1258 sqrft</li>
+            </ul>
+            <ul class="share-post">
+                <a href="#url" class="cost-estate m-o">@item.Count TL </a>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 w3l-news">
+                <div class="blog-single-post">
+                    <div class="single-post-image mb-5">
+                        <div class="owl-blog owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="card">
+                                    <img src="@item.Image" class="img-fluid radius-image" alt="image">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card">
+                                    <img src="~/starter/assets/images/p2.jpg" class="img-fluid radius-image" alt="image">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card">
+                                    <img src="~/starter/assets/images/p3.jpg" class="img-fluid radius-image" alt="image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="single-post-content">
+                        <h3 class="post-content-title mb-3">Açıklama</h3>
+                        <p class="mb-4">
+                           @item.Description
+                        </p>
+                        <p class="mb-4">
+                            When you decide to put your business online it is a little bet tricky step
+                            for novice
+                            computer users because they want to keep data safe & secure.
+                            This problem developed from companies which did not take security seriously. Lorem ipsum
+                            dolor sit amet elit.
+                        </p>
+                        <div class="single-bg-white">
+                            <h3 class="post-content-title mb-4">Property detail</h3>
+                            <ul class="details-list">
+                                <li><strong>Property id :</strong> PRPT12345 </li>
+                                <li><strong>Property size :</strong> 1200sqft </li>
+                                <li><strong>Rooms :</strong> 2 </li>
+                                <li><strong>Bedrooms :</strong> 5 </li>
+                                <li><strong>Bathrooms :</strong> 2 </li>
+                                <li><strong>Exterior material :</strong> Brick </li>
+                                <li><strong>Structure type :</strong> Wood </li>
+                                <li><strong>Garage size :</strong> 15 cars </li>
+                                <li><strong>Garages :</strong> 15 </li>
+                                <li><strong>Property Price :</strong> $ 750 </li>
+                                <li><strong>Built Year :</strong> 2018 </li>
+                                <li><strong>Avaiable from :</strong> Aug 2019 </li>
+                            </ul>
+                        </div>
+                        <div class="single-bg-white">
+                            <h3 class="post-content-title mb-4">Amenities</h3>
+                            <ul class="details-list">
+                                <li><strong>Air Conditioning </strong></li>
+                                <li><strong>Buil-In Wardrobes </strong> </li>
+                                <li><strong>Dishwasher</strong> </li>
+                                <li><strong>Floor Coverings </strong> </li>
+                                <li><strong>Medical / Clinic </strong> </li>
+                                <li><strong>Fencing</strong> </li>
+                                <li><strong>Internet and wifi </strong> </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12 mt-lg-2 mt-10">
+                <aside class="sidebar">
+
+                    <!-- Popular Post Widget-->
+                    <div class="sidebar-widget popular-posts">
+                        <div class="sidebar-title">
+                            <h4>Yeni ilan</h4>
+                        </div>
+
+                        <article class="post">
+                            <figure class="post-thumb">
+                                <img src="~/starter/assets/images/l5.jpg" class="radius-image" alt="">
+                            </figure>
+
+                        </article>
+                        <button type="submit" class="btn btn-primary btn-style w-100">Yeni İlan Ekle</button>
+                    </div>
+
+
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+}

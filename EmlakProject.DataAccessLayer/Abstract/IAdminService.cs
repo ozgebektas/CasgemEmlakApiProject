@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace EmlakProject.DataAccessLayer.Abstract
 {
-    public interface IAdminService
-    {
-        List<Admin> GetList();
+	public interface IAdminService
+	{
+		List<Admin> GetList();
 
-        Admin GetByIdAdmin(string categoryId);
-        Admin AddAdmin(Category category);
-        void UpdateAdmin(string id, Category category);
-        void Delete(string id);
-    }
+		Admin GetById(string id);
+		Admin Add(Admin admin);
+
+		void Deletet(string id);
+		void Update(string id, Admin admin);
+	}
 }

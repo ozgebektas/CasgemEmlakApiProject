@@ -10,14 +10,20 @@ namespace EmlakProject.EntityLayer.Concrete
 {
     public class Category
     {
+        //public Category()
+        //{
+        //    this.AnnouncementId=new HashSet<string>();
+        //    this.Announcements=new HashSet<Announcement>();
+        //}
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string CategoryID { get; set; }=string.Empty;
+        public string CategoryID { get; set; } =  ObjectId.GenerateNewId().ToString();
 
         [BsonElement("categoryname")]
-        public string CategoryName { get; set; } = string.Empty;
-        //public List<Building>? Buildings { get; set; } 
-        //public List<Land>? Lands { get; set; }
-        //public List<Announcement>? Announcements { get; set; }
+        public string CategoryName { get; set; } 
+
+        public ICollection<string>? AnnouncementId { get; set; }
+        //public ICollection<Announcement>? Announcements { get; set; }
+
     }
 }

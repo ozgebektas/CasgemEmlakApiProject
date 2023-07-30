@@ -1,16 +1,21 @@
 using EmlakProject.DataAccessLayer.Abstract;
 using EmlakProject.DataAccessLayer.Concrete;
-using EmlakProject.EntityLayer.DbSettings;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.Configure<DbSetting>(builder.Configuration.GetSection("DbSettings"));
-builder.Services.AddSingleton<IDbSetting>(x => x.GetRequiredService<IOptions<DbSetting>>().Value);
-builder.Services.AddSingleton<IMongoClient>(m => new MongoClient(builder.Configuration.GetValue<string>("DbSettings:ConnectionString")));
+//builder.Services.Configure<DbSetting>(builder.Configuration.GetSection("DbSettings"));
+//builder.Services.AddSingleton<IDbSetting>(x => x.GetRequiredService<IOptions<DbSetting>>().Value);
+//builder.Services.AddSingleton<IMongoClient>(m => new MongoClient(builder.Configuration.GetValue<string>("DbSettings:ConnectionString")));
 
-builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICustomerService, CustomerManager>();
+builder.Services.AddScoped<ICategoryService, CategoryManager>();
+builder.Services.AddScoped<IAnnouncementService, AnnouncementManager>();
+builder.Services.AddScoped<IPropertyService, PropertyManager>();
+builder.Services.AddScoped<IContactService, ContactManager>();
+builder.Services.AddScoped<IAdminService, AdminManager>();
 // Add services to the container.
 
 builder.Services.AddControllers();

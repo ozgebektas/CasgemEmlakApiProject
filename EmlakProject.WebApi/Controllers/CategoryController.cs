@@ -18,51 +18,60 @@ namespace EmlakProject.WebApi.Controllers
         [HttpGet]
         public IActionResult GetList()
         {
-            var values = _categoryService.GetList();
-            return Ok(values);
+            var category = _categoryService.GetList();
+            return Ok(category);
         }
-
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {
-            var prop = _categoryService.GetByIdCategory(id);
-            if (prop == null)
+            var category = _categoryService.GetById(id);
+            if (category == null)
             {
-                return NotFound("Mülk bulunamadı");
+                return BadRequest("kategori bulunamadı");
             }
-            return Ok(prop);
+            else
+            {
+                return Ok(category);
+            }
         }
-
-
         [HttpPost]
-        public IActionResult Add(Category category)
+
+        public IActionResult AddCategory(Category category)
         {
-            _categoryService.AddCategory(category);
+            _categoryService.Add(category);
             return CreatedAtAction("GetList", new { id = category.CategoryID }, category);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult Update(string id, Category category)
+        [HttpDelete]
+        public IActionResult DeleteCategory(string id)
         {
-            var prop = _categoryService.GetByIdCategory(id);
-            if (prop == null)
+            var category = _categoryService.GetById(id);
+            if (category == null)
             {
-                return NotFound("Mülk bulunamadı");
+                return BadRequest("kategori Bıulunamadı");
+
             }
-            _categoryService.UpdateCategory(id, category);
-            return Ok($"{category.CategoryID} ID ye sahip mülk güncellendi");
+            else
+            {
+                _categoryService.Delete(id);
+                return Ok("kategori silindi");
+            }
+        }
+        [HttpPut]
+
+        public IActionResult UpdateCategory(string id, Category category)
+        {
+            var cate = _categoryService.GetById(id);
+            if (cate == null)
+            {
+                return BadRequest("kategori Bulunamadı");
+            }
+            else
+            {
+                _categoryService.Update(id, category);
+                return Ok("kategori Güncellendi");
+            }
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
-        {
-            var prop = _categoryService.GetByIdCategory(id);
-            if (prop == null)
-            {
-                return NotFound("Mülk bulunamadı");
-            }
-            _categoryService.Delete(prop.CategoryID);
-            return Ok($"{prop.CategoryID} ID ye sahip mülk silindi.");
-        }
     }
 }

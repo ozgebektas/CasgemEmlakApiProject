@@ -12,11 +12,16 @@ namespace EmlakProject.EntityLayer.Concrete
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string ContactID { get; set; }
+        public string ContactID { get; set; } = ObjectId.GenerateNewId().ToString();
+
+        [BsonElement("name")]
         public string Name { get; set; }
+        [BsonElement("subject")]
         public string Subject { get; set; }
+        [BsonElement("email")]
         public string Email { get; set; }
+        [BsonElement("message")]
         public string Message { get; set; }
-        public DateTime SendDateMessage { get; set; }
+
     }
 }
